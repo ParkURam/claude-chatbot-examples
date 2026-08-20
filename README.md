@@ -31,8 +31,8 @@
 ## 받아서 실행하기
 
 ```bash
-git clone <저장소_URL>
-cd ai-service-dev-examples/day1-complete     # 원하는 날짜로
+git clone https://github.com/ParkURam/claude-chatbot-examples.git
+cd claude-chatbot-examples/day1-complete     # 원하는 날짜로
 
 python -m venv .venv
 source .venv/bin/activate                    # Windows는 .venv\Scripts\activate
@@ -68,3 +68,13 @@ ANTHROPIC_API_KEY=dummy pytest tests
 
 실습 가이드와 이 코드가 어긋나면 **가이드가 정본입니다.** 만들면서 가이드 쪽 오류를
 찾은 자리는 가이드를 고쳤고, 그 내역은 강의 저장소의 커밋 이력에 남아 있습니다.
+
+## 수강한 기수의 상태로 받기
+
+내용은 기수마다 손질됩니다. 들었던 그 시점 그대로 받으려면 태그를 쓰세요:
+
+```bash
+git checkout sesac2-260921     # SESAC 2기 · 2026-09-21
+```
+
+`git tag` 로 전체 목록을 볼 수 있습니다.
