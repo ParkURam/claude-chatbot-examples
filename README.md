@@ -59,7 +59,7 @@ http://localhost:8000/docs 를 열면 Swagger UI가 뜹니다.
 가짜 클라이언트로 Claude 호출을 대신하기 때문입니다.
 
 ```bash
-ANTHROPIC_API_KEY=dummy pytest tests
+ANTHROPIC_API_KEY=dummy python -m pytest tests
 ```
 
 키가 있어야만 되는 것은 **실제 답변을 받는 일**뿐입니다.

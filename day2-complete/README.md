@@ -64,7 +64,7 @@ curl localhost:8000/conversations/1/messages
 sqlite3 chat.db "SELECT role, content, input_tokens, output_tokens FROM message;"
 ```
 
-테스트는 키 없이 됩니다: `pytest tests`
+테스트는 키 없이 됩니다: `python -m pytest tests`
 
 ## 가이드와 다른 곳
 

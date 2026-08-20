@@ -66,7 +66,7 @@ web/
 | `GET /health` | 200 |
 | CORS preflight (`Origin: localhost:5173`) | `access-control-allow-origin: http://localhost:5173` |
 | CORS preflight (허용 안 된 출처) | allow-origin 헤더 없음 |
-| `pytest tests` | 6 passed |
+| `python -m pytest tests` | 6 passed |
 
 ## 가이드와 다른 곳
 

@@ -39,7 +39,7 @@ tests/
 | 빈 문자열 거부 | `/docs` 에서 `{"question": ""}` | 422 + `detail` 배열 |
 | 2000자 초과 거부 | 2001자 보내기 | 422 |
 | 호출 실패 처리 | 키를 틀린 값으로 바꾸고 질문 | 502 + `detail` 메시지 |
-| 테스트 | `ANTHROPIC_API_KEY=dummy pytest tests` | 4 passed |
+| 테스트 | `ANTHROPIC_API_KEY=dummy python -m pytest tests` | 4 passed |
 
 ## 가이드와 다른 두 곳
 

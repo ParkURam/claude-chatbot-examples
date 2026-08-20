@@ -15,7 +15,7 @@ ANTHROPIC_API_KEY=발급받은_키 uvicorn app.main:app --reload
 http://localhost:8000 에서 답변이 한 글자씩 타이핑되듯 나옵니다.
 생성 중에는 **중단** 버튼이 뜹니다.
 
-테스트는 키 없이 됩니다: `ANTHROPIC_API_KEY=dummy pytest tests` → 8 passed
+테스트는 키 없이 됩니다: `ANTHROPIC_API_KEY=dummy python -m pytest tests` → 8 passed
 
 ## 알아 둘 함정 셋
 

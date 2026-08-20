@@ -34,7 +34,7 @@ selectinload 적용 : SELECT 2회
 
 ```bash
 pip install -r requirements.txt
-ANTHROPIC_API_KEY=dummy pytest tests     # 9 passed
+ANTHROPIC_API_KEY=dummy python -m pytest tests     # 9 passed
 ```
 
 ## 가이드와 다른 곳
