@@ -3,14 +3,13 @@ from typing import Annotated
 
 from anthropic import Anthropic
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel, Field
 from sqlmodel import select
 
 from ..core.config import get_claude_client
 from ..core.db import SessionDep
 from ..models.conversation import Conversation
 from ..models.message import Message
-from ..schemas.chat import ChatResponse
+from ..schemas.chat import ChatRequest, ChatResponse
 from ..services.chat import MODEL, ask_claude_with_history, first_text
 
 router = APIRouter(prefix="/chat", tags=["chat"])
@@ -18,14 +17,10 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 ClaudeDep = Annotated[Anthropic, Depends(get_claude_client)]
 
 
-class QuestionIn(BaseModel):
-    question: str = Field(min_length=1, max_length=2000)
-
-
 @router.post("/{conversation_id}", response_model=ChatResponse)
 def create_chat(
     conversation_id: int,
-    req: QuestionIn,
+    req: ChatRequest,
     session: SessionDep,
     client: ClaudeDep,
 ):

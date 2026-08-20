@@ -35,7 +35,7 @@ tests/
 | 무엇 | 어떻게 | 기대 |
 |---|---|---|
 | 헬스체크 | `curl localhost:8000/health` | `{"status":"ok"}` |
-| 스키마 반영 | `/docs` 에서 `POST /chat` | `QuestionIn` · `ChatResponse` |
+| 스키마 반영 | `/docs` 에서 `POST /chat` | `ChatRequest` · `ChatResponse` |
 | 빈 문자열 거부 | `/docs` 에서 `{"question": ""}` | 422 + `detail` 배열 |
 | 2000자 초과 거부 | 2001자 보내기 | 422 |
 | 호출 실패 처리 | 키를 틀린 값으로 바꾸고 질문 | 502 + `detail` 메시지 |

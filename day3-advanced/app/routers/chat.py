@@ -5,14 +5,13 @@ from typing import Annotated
 from anthropic import Anthropic
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel, Field
 from sqlmodel import Session, select
 
 from ..core.config import get_claude_client
 from ..core.db import SessionDep, engine
 from ..models.conversation import Conversation
 from ..models.message import Message
-from ..schemas.chat import ChatResponse
+from ..schemas.chat import ChatRequest, ChatResponse
 from ..services.chat import (
     MODEL,
     ask_claude_with_history,
@@ -25,14 +24,10 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 ClaudeDep = Annotated[Anthropic, Depends(get_claude_client)]
 
 
-class QuestionIn(BaseModel):
-    question: str = Field(min_length=1, max_length=2000)
-
-
 @router.post("/{conversation_id}", response_model=ChatResponse)
 def create_chat(
     conversation_id: int,
-    req: QuestionIn,
+    req: ChatRequest,
     session: SessionDep,
     client: ClaudeDep,
 ):
@@ -81,7 +76,7 @@ def create_chat(
 @router.post("/{conversation_id}/stream")
 def create_chat_stream(
     conversation_id: int,
-    req: QuestionIn,
+    req: ChatRequest,
     client: ClaudeDep,
 ):
     """답변을 타이핑되듯 흘려보낸다.

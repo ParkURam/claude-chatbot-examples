@@ -71,7 +71,7 @@ sqlite3 chat.db "SELECT role, content, input_tokens, output_tokens FROM message;
 | 가이드 | 이 코드 | 왜 |
 |---|---|---|
 | `@router.post("/conversations")` 가 `prefix="/chat"` 라우터에 붙음 (`day2.md:272`) | `conversations.py` 라우터로 분리 | 그대로 두면 `/chat/conversations` 가 되어 문서의 curl(`day2.md:397`)·Day4 API 목록과 어긋나고, `/chat/{conversation_id:int}` 와 경로가 충돌합니다 |
-| `question` 을 함수 인자로 받음 (`day2.md:300`) | JSON 본문 `{"question": ...}` | 그대로면 쿼리 파라미터가 됩니다. 실습 2에서 세운 `QuestionIn` 과도 어긋나고 Day3 프런트가 보내는 모양과도 다릅니다 |
+| `question` 을 함수 인자로 받음 (`day2.md:300`) | JSON 본문 `{"question": ...}` | 그대로면 쿼리 파라미터가 됩니다. 실습 2에서 세운 `ChatRequest` 와도 어긋나고 Day3 프런트가 보내는 모양과도 다릅니다 |
 | `from models.conversation import ...` | `from ..models.conversation import ...` | 최상위 `models/` 를 가리켜 `uvicorn app.main:app` 에서 `ModuleNotFoundError` 가 납니다 |
 | `models/message.py` 에 `datetime` 임포트 없음 (`day2.md:47`) | `from datetime import datetime` 추가 | 그대로면 `NameError` |
 | `core/config.py` 를 `SQLITE_URL` 로 갈아엎음 (`day2.md:82`) | `Settings` 에 `database_url` 추가 | Day1의 `Settings` 가 사라지고, 환경 변수 이름도 Day4(`DATABASE_URL`)와 어긋납니다 |
