@@ -1,0 +1,9 @@
+anthropic==0.125.0
+fastapi==0.141.1
+pydantic-settings==2.15.0
+sqlmodel==0.0.39
+uvicorn==0.52.4
+
+# 테스트용 — 배포에는 필요 없지만 pytest 를 돌리려면 있어야 합니다.
+httpx==0.28.1
+pytest==9.1.1
