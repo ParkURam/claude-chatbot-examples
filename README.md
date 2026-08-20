@@ -13,7 +13,17 @@
 | `day1-complete/` | 실습 1~3 | 질문을 보내면 Claude가 답하는 API. 계층 분리·스키마 검증·테스트 |
 | `day2-complete/` | 실습 4~6 | 대화를 기억하는 챗봇. SQLite에 대화·발화를 저장 |
 | `day3-complete/` | 실습 7~9 | React 채팅 화면. 서버 하나로 화면과 API가 함께 |
-| `day4-complete/` | 실습 10~12 | 배포 준비 완료 — `.env` 분리·`requirements.txt`·포트 바인딩 |
+| `day4-complete/` | 실습 10~11 | 배포 준비 완료 — `.env` 분리·`requirements.txt`·포트 바인딩 |
+
+심화 실습은 필수 경로를 흐리지 않도록 따로 두었습니다. 못 해도 다음 날 진도에 지장이 없습니다.
+
+| 디렉터리 | 무엇 |
+|---|---|
+| `day2-advanced/` | 실습 6 — `Relationship` · `selectinload` 로 N+1 없애기 · 페이지네이션 |
+| `day3-advanced/` | 실습 9 — 응답 스트리밍과 중단 버튼 |
+
+실습 12의 심화(JWT · Docker · PostgreSQL)는 코드로 넣지 않았습니다 — 이유는
+`day4-complete/README.md` 에 적혀 있습니다.
 
 각 디렉터리는 **그날까지의 완성 상태 전체**입니다. 하루치 차이만 담긴 것이 아니라
 그 자체로 돌아가는 프로젝트라, 어느 날 것이든 바로 열어 실행할 수 있습니다.
@@ -30,6 +40,13 @@ pip install -r requirements.txt
 
 export ANTHROPIC_API_KEY="발급받은_키"        # Windows CMD는 set, PowerShell은 $env:
 uvicorn app.main:app --reload
+```
+
+**Day 3 이후는 화면을 먼저 빌드해야 합니다** — `web/dist/` 는 빌드 결과물이라
+저장소에 담지 않았습니다:
+
+```bash
+cd web && npm install && npm run build && cd ..
 ```
 
 http://localhost:8000/docs 를 열면 Swagger UI가 뜹니다.
